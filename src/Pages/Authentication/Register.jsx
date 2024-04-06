@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
     const [successMsg, setsuccessMsg] = useState(null)
+    const [showPass,setShowPass]=useState(false)
     const navigate = useNavigate();
 
     const { googleLogIn, createUser } = useContext(AuthContext);
@@ -106,13 +107,17 @@ const Register = () => {
                         <label htmlFor="email" className=" font-bold p-1">Email</label>
                         <input className="p-2 border-t-2" type="email" name="email" id="email" placeholder="Your Email" />
                     </div>
-                    <div className="p-4 flex  flex-col">
-                        <label htmlFor="password" className=" font-bold p-1">Password</label>
-                        <input className="p-2 border-t-2" type="text" name="password" id="password" placeholder="Password" />
+                    <div className="px-4 flex  flex-col">
+                    <label htmlFor="password" className=" font-bold p-1">Password</label>
+                     </div>
+
+                    <div className="mx-4 pb-4 flex justify-between items-center  border-t-2  ">
+                        <input className="p-2 flex-1  " type={showPass?'text':'password'} name="password" id="password" placeholder="Password" />
+                        <span onClick={()=>setShowPass(!showPass)} className="font-semibold">{showPass?"Hide":'Show'} </span>
                     </div>
                     <div className="p-4 flex  flex-col">
                         <label htmlFor="confirmPass" className=" font-bold p-1">Confirm Passwor</label>
-                        <input className="p-2 border-t-2" type="text" name="confirmPass" id="confirmPass" placeholder="Confirm Passwor" />
+                        <input className="p-2 border-t-2" type={showPass?'text':'password'} name="confirmPass" id="confirmPass" placeholder="Confirm Passwor" />
                     </div>
 
                     <div className="p-4 flex  flex-col">
