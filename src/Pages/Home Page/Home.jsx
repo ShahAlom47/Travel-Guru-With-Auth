@@ -13,20 +13,22 @@ import { set } from "firebase/database";
 const Home = () => {
     const dImg='https://images.unsplash.com/photo-1618675734190-f1a25ba10073?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     const [datas, setDatas] = useState([]);
-    const [img,setImg]=useState(dImg)
-    const [slideIdx,setSlidIdx]=useState(null);
+    const [img,setImg]=useState(null)
+    const [slideIdx,setSlidIdx]=useState(1);
+    const [slidData, setSlideData]=useState({})
     useEffect(() => {
         fetch('data.json')
             .then((res) => res.json())
             .then((data) => {
                 setDatas(data)
+                setSlideData(data[1])
 
             })
 
 
     }, [])
 
-console.log(slideIdx);
+console.log(slidData);
 
     return (
 
@@ -41,13 +43,17 @@ console.log(slideIdx);
                     <div className=" w-full  z-20  ">
                         <Navbar color={'text-white'}></Navbar>
                         <div className="flex">
-                            <div className="w-2/6 ">
+                            <div className="w-3/6 pl-12 flex flex-col justify-center  ">
+                                <h1 className="text-6xl font-bold  text-white uppercase ">{slidData?.place_name}</h1>
+                                <p className="text-gray-300 w-8/12 my-4">{slidData?.description}</p>
 
+                                <button className="btn bg-[#F9A51A] w-28 border-none rounded-sm font-bold">Booking &#8594; </button>
                             </div>
 
-                            <div className="w-4/6 ">
+                            <div className="w-3/6 ">
 
                                 <Swiper
+                                  
                                     slidesPerView={4}
                                     centeredSlides={true}
                                     spaceBetween={30}
@@ -59,7 +65,7 @@ console.log(slideIdx);
                                     className="mySwiper"
                                     onSlideChange={(swiper) => {
                                         const activeSlide = datas[swiper.activeIndex];
-                                        console.log(activeSlide);
+                                        setSlideData(activeSlide);
                                         setImg(activeSlide.img)
                                         setSlidIdx(swiper.activeIndex)
                                       }}
