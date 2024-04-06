@@ -64,7 +64,9 @@ console.log(location);
 
     const googleLogin =()=>{
         googleLogIn()
-        .then()
+        .then(()=>{
+            navigate(location.state? location.state:'/')
+        })
         .catch((error) => {
             const errorMessage = error.message;
             console.log(errorMessage);
@@ -81,7 +83,7 @@ console.log(location);
 
             <div className="w-6/12 m-auto border-2 rounded-xl mt-9 p-8">
 
-                <h1 className="text-xl  font-bold"> Create an account</h1>
+                <h1 className="text-xl  font-bold"> LOGIN</h1>
 
                 <form onSubmit={loginHandel} className="mt-6" >
 

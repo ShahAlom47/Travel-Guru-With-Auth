@@ -75,7 +75,9 @@ const Register = () => {
 
     const googleLogin = () => {
         googleLogIn()
-            .then()
+        .then(()=>{
+            navigate(location.state? location.state:'/')
+        })
             .catch((error) => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
