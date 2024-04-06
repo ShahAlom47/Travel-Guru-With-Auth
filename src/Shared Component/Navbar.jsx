@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'; // ES6
 
 const Navbar = ({color}) => {
   const {user,logOutUser}=useContext(AuthContext)
-  console.log(typeof color);
+
 
   const logOutHandel=()=>{
     logOutUser()
@@ -28,9 +28,12 @@ const Navbar = ({color}) => {
         </ul>
       </div>
       <div>
-        <p className=' text-green-600 '>{user&& `User:${user.displayName}`}</p>
-       <Link to={'/login'}> <button className=' btn btn-sm bg-yellow-400 '> LOGIN</button></Link>
-       <Link > <button onClick={logOutHandel} className=' btn btn-sm bg-yellow-400 '> LOGOUT</button></Link>
+        <p className=' text-green-600 mr-4 '>{user&& `User:${user.displayName}`}</p>
+        {
+          user? <Link > <button onClick={logOutHandel} className=' btn btn-sm bg-yellow-400 '> LOGOUT</button></Link> : <Link to={'/login'}> <button className=' btn btn-sm bg-yellow-400 '> LOGIN</button></Link>
+        }
+      
+       
       </div>
     </div>
   );

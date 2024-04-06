@@ -4,13 +4,16 @@ import { useContext, useState } from "react";
 import fb from '../../assets/images/icons/fb.png'
 import google from '../../assets/images/icons/google.png'
 import { AuthContext } from "../../Shared Component/AuthProvider";
-
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const LogIn = () => {
     const [errorMsg, setErrorMsg] = useState(null)
     const [successMsg, setsuccessMsg] = useState(null)
-    
+    const navigate = useNavigate();
+    const location = useLocation();
 
+console.log(location);
     const {googleLogIn,loginUser}=useContext(AuthContext);
 
     const loginHandel = (e) => {
@@ -49,6 +52,7 @@ const LogIn = () => {
         .then(() => {
              setsuccessMsg('Create user success')
              e.target.reset()
+             navigate(location.state? location.state:'/')
         })
         .catch((error) => {
             const errorMessage = error.message;

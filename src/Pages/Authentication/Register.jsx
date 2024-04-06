@@ -6,12 +6,13 @@ import google from '../../assets/images/icons/google.png'
 import { AuthContext } from "../../Shared Component/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebase.config";
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
     const [errorMsg, setErrorMsg] = useState(null)
     const [successMsg, setsuccessMsg] = useState(null)
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const { googleLogIn, createUser } = useContext(AuthContext);
 
@@ -60,6 +61,7 @@ const Register = () => {
                     });
 
                 setsuccessMsg('Create user success')
+                navigate('/')
             })
             .catch((error) => {
                 const errorMessage = error.message;
