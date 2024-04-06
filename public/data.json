@@ -1,0 +1,44 @@
+[
+  {
+    "id": "d1",
+    "img": "https://images.unsplash.com/photo-1598751337485-0d57b0c50b83?q=80&w=1282&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": "Kakheti Valley",
+    "title": "Nature's Paradise",
+    "description": "Kakheti Valley is an extraordinary natural landscape where you can experience natural beauty and tranquility."
+  },
+  {
+    "id": "d2",
+    "img": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": "Santorini",
+    "title": "Mountainous Beauty",
+    "description": "Santorini is a remarkable mountainous landscape where you can experience stunning sunsets and beautiful cloudscapes."
+  },
+  {
+    "id": "d3",
+    "img": "https://images.unsplash.com/photo-1530445098981-862544854865?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": "Mt. Fuji, Japan",
+    "title": "Iconic Landmark",
+    "description": "Mt. Fuji is Japan's iconic landmark where you can witness breathtaking views and immerse in rich cultural heritage."
+  },
+  {
+    "id": "d4",
+    "img": "https://images.unsplash.com/photo-1569081156080-238534923b09?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": "Grand Canyon",
+    "title": "Natural Wonder",
+    "description": "The Grand Canyon is a natural wonder of the world, offering awe-inspiring vistas and unparalleled hiking experiences."
+  },
+  {
+    "id": "d5",
+    "img": "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": " Australia",
+    "title": "Marine Wonderland",
+    "description": "The Great Barrier Reef is a marine wonderland, boasting vibrant coral reefs and diverse marine life."
+  },
+  {
+    "id": "d6",
+    "img": "https://images.unsplash.com/photo-1521683786601-e1ad300e5490?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "place_name": "Machu Picchu",
+    "title": "Ancient Ruins",
+    "description": "Machu Picchu is an ancient Incan citadel nestled in the Andes Mountains, offering breathtaking views and rich historical significance."
+  }
+]

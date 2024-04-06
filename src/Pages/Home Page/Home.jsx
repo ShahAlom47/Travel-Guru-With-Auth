@@ -6,15 +6,33 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import '../../../src/index.css';
 import { Pagination } from 'swiper/modules';
+import { data } from "autoprefixer";
+import { useEffect, useState } from "react";
+import { set } from "firebase/database";
 
 const Home = () => {
+    const dImg='https://images.unsplash.com/photo-1618675734190-f1a25ba10073?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    const [datas, setDatas] = useState([]);
+    const [img,setImg]=useState(dImg)
+    const [slideIdx,setSlidIdx]=useState(null);
+    useEffect(() => {
+        fetch('data.json')
+            .then((res) => res.json())
+            .then((data) => {
+                setDatas(data)
+
+            })
 
 
+    }, [])
+
+console.log(slideIdx);
 
     return (
 
 
-        <div className="  min-h-screen absolute inset-0 bg-cover bg-center " style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1618675734190-f1a25ba10073?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+        <div className="  min-h-screen absolute inset-0 bg-cover bg-center " style={{  backgroundImage: `url(${img})`, backgroundSize: 'cover',
+        backgroundPosition: 'center' }}>
             <div className="absolute inset-0 bg-gray-900 opacity-80 z-10"></div>
 
 
@@ -39,16 +57,39 @@ const Home = () => {
                                     }}
                                     modules={[Pagination]}
                                     className="mySwiper"
-                                    onSlideChange={() => console.log('slide change')}
+                                    onSlideChange={(swiper) => {
+                                        const activeSlide = datas[swiper.activeIndex];
+                                        console.log(activeSlide);
+                                        setImg(activeSlide.img)
+                                        setSlidIdx(swiper.activeIndex)
+                                      }}
                                     onSwiper={(swiper) => console.log(swiper)}
+                                   
                                 >
-                                    <SwiperSlide><div className="bg-red-200 h-[400px] my-10 border-4">Cok's Bazar</div></SwiperSlide>
-                                    <SwiperSlide><div className="bg-red-300 h-[400px] my-10 border-4">Slide 1</div></SwiperSlide>
-                                    <SwiperSlide><div className="bg-red-400 h-[400px] my-10 border-4">Slide 1</div></SwiperSlide>
-                                    <SwiperSlide><div className="bg-red-500 h-[400px] my-10 border-4">Slide 1</div></SwiperSlide>
-                                    <SwiperSlide><div className="bg-red-600 h-[400px] my-10 border-4">Slide 1</div></SwiperSlide>
+                                    {
+                                        datas.map((data, index) => {
+                                            return (
+                                                <>
+                                                    <SwiperSlide key={index}  >
+                                                        
+                                                        <div style={{
+                                                            backgroundImage: `url(${data.img})`,
+                                                            backgroundSize: 'cover',
+                                                            backgroundPosition: 'center'
+                                                        }} className={`h-[300px] my-10 border-4 ${slideIdx===index?'border-yellow-400':'border-gray-300'} flex items-end rounded-xl`}>
+                                                            {/* <img src={data.img} alt="" /> */}
+                                                            <p className="text-white  text-3xl font-bold my-10">{data.place_name}</p>
+                                                            {console.log()}
+                                                        </div>
+                                                    </SwiperSlide>
+
+                                                </>
+                                            )
+                                        })
+                                    }
 
                                 </Swiper>
+
                             </div>
                         </div>
                     </div>
